@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import TodoForm from "./TodoForm";
 import About from "./About";
 
@@ -14,16 +14,16 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <ul className="hidden md:flex space-x-6 text-gray-700 font-medium">
           <li>
-            <Link to="/">Home</Link>
+            <a href="/">Home</a>
           </li>
           <li>
-            <Link to="/About">About</Link>
+            <a href="/About">About</a>
           </li>
           <li>
-            <Link to="/Services">Services</Link>
+            <a href="/Services">Services</a>
           </li>
           <li>
-            <Link to="/Contact">Contact</Link>
+            <a href="/Contact">Contact</a>
           </li>
         </ul>
 
@@ -41,16 +41,16 @@ const Navbar = () => {
         <div className="md:hidden px-4 pb-4">
           <ul className="space-y-2 text-gray-700 font-medium">
             <li>
-              <Link to="/">Home</Link>
+              <a href="/">Home</a>
             </li>
             <li>
-              <Link to="/About">About</Link>
+              <a href="/About">About</a>
             </li>
             <li>
-              <Link to="/Services">Services</Link>
+              <a href="/Services">Services</a>
             </li>
             <li>
-              <Link to="/Contact">Contact</Link>
+              <a href="/Contact">Contact</a>
             </li>
           </ul>
         </div>

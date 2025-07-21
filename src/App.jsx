@@ -2,10 +2,10 @@ import "./App.css";
 import Navbar from "./Components/Navbar";
 import Form from "./Components/TodoForm";
 import DisplayTodo from "./Components/DisplayTodo";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import About from "./Components/About";
-import Services from "./Components/Services";
-import Contact from "./Components/Contact"
+// import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+// import About from "./Components/About";
+// import Services from "./Components/Services";
+// import Contact from "./Components/Contact"
 import { useEffect, useState } from "react";
 
 function App() {
@@ -72,13 +72,13 @@ function App() {
 
   return (
     <>
-      <Router basename="/Todo-React-JS">
+      {/* <Router basename="/Todo-React-JS"> */}
         <Navbar />
-        <Routes>
-          <Route
+        {/* <Routes> */}
+          {/* <Route
             exact
             path="/"
-            element={
+            element={ */}
               <>
                 <Form addTodo={addTodo} />
                 <DisplayTodo
@@ -134,13 +134,13 @@ function App() {
                   </div>
                 )}
               </>
-            }
+            {/* }
           ></Route>
           <Route exact path="/about" element={<About />}></Route>
           <Route exact path="/services" element={<Services />}></Route>
           <Route exact path="/contact" element={<Contact />}></Route>
         </Routes>
-      </Router>
+      </Router> */}
     </>
   );
 }
