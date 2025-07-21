@@ -72,7 +72,7 @@ function App() {
 
   return (
     <>
-      <Router basename="/Todo">
+      <Router basename="/Todo-React-JS">
         <Navbar />
         <Routes>
           <Route
