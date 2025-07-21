@@ -6,10 +6,21 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import About from "./Components/About";
 import Services from "./Components/Services";
 import Contact from "./Components/Contact"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App() {
-  const [todolist, setTodolist] = useState([]);
+  let initTodo;
+  if(localStorage.getItem("todolist") == null){
+    setTodolist([])
+  }
+  else{
+    initTodo = JSON.parse(localStorage.getItem("todolist"))
+  }
+
+  const [todolist, setTodolist] = useState(initTodo);
+  useEffect( () => {
+    localStorage.setItem("todolist" , JSON.stringify(todolist))
+  } , [todolist])
   const [showEditForm, setShowEditForm] = useState(false);
   const [editData, setEditData] = useState(null);
   const [title, setTitle] = useState("");
@@ -19,11 +30,13 @@ function App() {
     if (!todo || !todo.subject || !todo.work) return;
     const newTodo = { ...todo, id: todolist.length + 1 };
     setTodolist([...todolist, newTodo]);
+    localStorage.setItem("todos", JSON.stringify(todolist));
   };
 
   const deleteTodo = (id) => {
     setTodolist(todolist.filter((todo) => todo.id !== id));
     setShowEditForm(false);
+    localStorage.setItem("todos", JSON.stringify(todolist));
   };
 
   const editTodo = (id) => {
@@ -33,6 +46,7 @@ function App() {
       setTitle(todoToEdit.subject);
       setWork(todoToEdit.work);
       setShowEditForm(true);
+      localStorage.setItem("todos", JSON.stringify(todolist));
     } else {
       alert("Todo not found");
     }
@@ -58,7 +72,7 @@ function App() {
 
   return (
     <>
-      <Router>
+      <Router basename="/Todo">
         <Navbar />
         <Routes>
           <Route
