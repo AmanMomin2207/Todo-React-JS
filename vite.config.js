@@ -8,5 +8,5 @@ export default defineConfig({
     tailwindcss(),
     react()
   ],
-  base: '/Todo/',
+  base: '/Todo-React-JS/',
 })
